@@ -1,0 +1,17 @@
+pytest
+pylint
+ipdb
+jupyterlab
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+colorama
+python-dotenv
+google-cloud-storage
+joblib
+fastapi==0.108.0
+pytz
+uvicorn
+streamlit
