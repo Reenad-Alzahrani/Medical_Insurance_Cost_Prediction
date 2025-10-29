@@ -7,4 +7,15 @@ pandas
 matplotlib
 seaborn
 scikit-learn
+<<<<<<< HEAD
 notebook==7.3.2
+=======
+colorama
+python-dotenv
+google-cloud-storage
+joblib
+fastapi==0.108.0
+pytz
+uvicorn
+streamlit
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f

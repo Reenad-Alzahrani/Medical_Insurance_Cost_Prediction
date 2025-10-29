@@ -7,11 +7,21 @@ from project.ml_logic.preprocessing import preprocessing
 
 
 class Sex(str, Enum): female = "Female"; male = "Male"; other = "Other"
+<<<<<<< HEAD
 class Region(str, Enum): north = "North"; central = "Central"; west = "West"; south = "South"; east = "East"
 class Education(str, Enum): doctorate = "Doctorate"; no_hs = "No HS"; hs = "HS"; some_college = "Some College"; masters = "Masters"; bachelors = "Bachelors"
 class Employment(str, Enum): retired = "Retired"; employed = "Employed"; self_employed = "Self-employed"; unemployed = "Unemployed"
 class Smoker(str, Enum): never = "Never"; current = "Current"; former = "Former"
 class Tier(str, Enum): bronze = "Bronze"; gold = "Gold"; platinum = "Platinum"; silver = "Silver"
+=======
+class MaritalStatus(str, Enum): Married = "Married"; Single = "Single"; Divorced = "Divorced"; Widowed = "Widowed"
+class Region(str, Enum): north = "North"; central = "Central"; west = "West"; south = "South"; east = "East"
+class Education(str, Enum): doctorate = "Doctorate"; no_hs = "No High School"; hs = "High School"; some_college = "Some College"; masters = "Masters"; bachelors = "Bachelors"
+class Employment(str, Enum): retired = "Retired"; employed = "Employed"; self_employed = "Self-employed"; unemployed = "Unemployed"
+class Smoker(str, Enum): never = "Never"; current = "Current"; former = "Former"
+class Tier(str, Enum): bronze = "Bronze"; gold = "Gold"; platinum = "Platinum"; silver = "Silver"
+class Plan(str, Enum): PPO = "Preferred Provider Organization"; HMO = "Health Maintenance Organization"; EPO = "Exclusive Provider Organization"; POS = "SilvPoint of Serviceer"
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
 
 
 app = FastAPI()
@@ -35,12 +45,44 @@ def align_to_schema(input_df: pd.DataFrame, full_schema: list) -> pd.DataFrame:
 
 @app.get("/predict")
 def predict(
+<<<<<<< HEAD
     age: int, sex: Sex, region: Region, bmi: float, children: int, smoker: Smoker,
     annual_premium: float, network_tier: Tier, deductible: float, total_claims_paid: float,
     avg_claim_amount: float, hba1c: float, provider_quality: float, diastolic_bp: float,
     income: float, education: Education, employment_status: Employment,
     medication_count: int, risk_score: float, diabetes: bool, arthritis: bool
 ):
+=======
+    age: int,
+    sex: Sex,
+    region: Region,
+    education: Education,
+    employment_status: Employment,
+    marital_status: MaritalStatus,
+    household_size: int,
+    income: float,
+    bmi: float,
+    smoker: Smoker,
+    visits_last_year: int,
+    hospitalizations_last_3yrs: int,
+    deductible: float,
+    claims_count: int,
+    total_claims_paid: float,
+    provider_quality: float,
+    hba1c: float,
+    diastolic_bp: float,
+    systolic_bp: float,
+    ldl: float,
+    diabetes: bool,
+    medication_count: int,
+    proc_physio_count: int,
+    proc_consult_count: int,
+    arthritis: bool,
+    annual_premium: float,
+    plan_type: Plan,
+    network_tier: Tier):
+
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
     model = app.state.model
     if model is None:
         raise RuntimeError("Model failed to load")
@@ -54,13 +96,20 @@ def predict(
         'urban_rural': None,
         'income': income,
         'education': education.value,
+<<<<<<< HEAD
         'marital_status': None,
         'employment_status': employment_status.value,
         'household_size': None,
+=======
+        'employment_status': employment_status.value,
+        'household_size': None,
+        'marital_status': marital_status.value,
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
         'dependents': None,
         'bmi': bmi,
         'smoker': smoker.value,
         'alcohol_freq': None,
+<<<<<<< HEAD
         'visits_last_year': None,
         'hospitalizations_last_3yrs': None,
         'days_hospitalized_last_3yrs': None,
@@ -68,6 +117,15 @@ def predict(
         'systolic_bp': None,
         'diastolic_bp': diastolic_bp,
         'ldl': None,
+=======
+        'visits_last_year': visits_last_year,
+        'hospitalizations_last_3yrs': hospitalizations_last_3yrs,
+        'days_hospitalized_last_3yrs': None,
+        'medication_count': medication_count,
+        'systolic_bp': systolic_bp,
+        'diastolic_bp': diastolic_bp,
+        'ldl': ldl,
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
         'hba1c': hba1c,
         'plan_type': None,
         'network_tier': network_tier.value,
@@ -76,11 +134,19 @@ def predict(
         'policy_term_years': None,
         'policy_changes_last_2yrs': None,
         'provider_quality': provider_quality,
+<<<<<<< HEAD
         'risk_score': risk_score,
         'annual_premium': annual_premium,
         'monthly_premium': None,
         'claims_count': None,
         'avg_claim_amount': avg_claim_amount,
+=======
+        'risk_score': None,
+        'annual_premium': annual_premium,
+        'monthly_premium': None,
+        'claims_count': claims_count,
+        'avg_claim_amount': None,
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
         'total_claims_paid': total_claims_paid,
         'chronic_count': None,
         'hypertension': None,
@@ -95,8 +161,13 @@ def predict(
         'mental_health': None,
         'proc_imaging_count': None,
         'proc_surgery_count': None,
+<<<<<<< HEAD
         'proc_physio_count': None,
         'proc_consult_count': None,
+=======
+        'proc_physio_count': proc_physio_count,
+        'proc_consult_count': proc_consult_count,
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
         'proc_lab_count': None,
         'is_high_risk': None,
         'had_major_procedure': None

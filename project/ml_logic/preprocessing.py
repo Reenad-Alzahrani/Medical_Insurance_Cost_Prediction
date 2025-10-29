@@ -16,9 +16,12 @@ def simpleimputer(data):
     data_imputed = pd.DataFrame(imputer.fit_transform(data), columns=data.columns)
     return data_imputed
 
+<<<<<<< HEAD
     #imputer= SimpleImputer(strategy='most_frequent')
     #data['alcohol_freq'] = imputer.fit_transform(data[['alcohol_freq']])[:,0]
     #return data
+=======
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
 
 def normalize_column_names(data):
     data.columns = data.columns.str.strip().str.lower().str.replace(' ', '_')
@@ -34,7 +37,11 @@ def standardscaler(data):
     return df_standard_scaled
 
 def minmaxscaler(data):
+<<<<<<< HEAD
     minmax_cols = ['total_claims_paid', 'avg_claim_amount', 'policy_changes_last_2yrs',
+=======
+    minmax_cols = ['total_claims_paid', 'policy_changes_last_2yrs',
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
                 'annual_premium','days_hospitalized_last_3yrs',
                 'proc_surgery_count', 'income', 'hospitalizations_last_3yrs', 'hba1c',
                 'deductible', 'claims_count', 'proc_consult_count', 'proc_lab_count',
@@ -69,7 +76,11 @@ def ordinalencoder(data):
                       index=data.index)], axis=1)
 
 def preprocessing(data):
+<<<<<<< HEAD
     data = data.drop(columns=['monthly_premium', 'person_id'])
+=======
+    data = data.drop(columns=['monthly_premium', 'person_id','avg_claim_amount'])
+>>>>>>> e838104432fa0d98e1ec49ae0b5106466abfc96f
     data = simpleimputer(data)
     data = standardscaler(data)
     data = minmaxscaler(data)
