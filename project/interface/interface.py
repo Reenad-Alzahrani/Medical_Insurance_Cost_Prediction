@@ -1,8 +1,18 @@
 import streamlit as st
 import requests
 import pandas as pd
-from app.fast import Sex, Region, Education, Employment, MaritalStatus, Smoker, Plan, Tier
+from enum import Enum
 
+
+
+class Sex(str, Enum): female = "Female"; male = "Male"; other = "Other"
+class MaritalStatus(str, Enum): Married = "Married"; Single = "Single"; Divorced = "Divorced"; Widowed = "Widowed"
+class Region(str, Enum): north = "North"; central = "Central"; west = "West"; south = "South"; east = "East"
+class Education(str, Enum): doctorate = "Doctorate"; no_hs = "No High School"; hs = "High School"; some_college = "Some College"; masters = "Masters"; bachelors = "Bachelors"
+class Employment(str, Enum): retired = "Retired"; employed = "Employed"; self_employed = "Self-employed"; unemployed = "Unemployed"
+class Smoker(str, Enum): never = "Never"; current = "Current"; former = "Former"
+class Tier(str, Enum): bronze = "Bronze"; gold = "Gold"; platinum = "Platinum"; silver = "Silver"
+class Plan(str, Enum): PPO = "Preferred Provider Organization"; HMO = "Health Maintenance Organization"; EPO = "Exclusive Provider Organization"; POS = "SilvPoint of Serviceer"
 
 st.set_page_config(
     page_title="Medical Insurance Cost Prediction",
