@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
-from project.app.fast import Sex, Region, Education, Employment, MaritalStatus, Smoker, Plan, Tier
+from app.fast import Sex, Region, Education, Employment, MaritalStatus, Smoker, Plan, Tier
 
 
 st.set_page_config(
